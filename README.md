@@ -31,7 +31,7 @@ Things you may want to cover:
 |    family_kana   |  string  |            null:false, format: { with: /\A[ァ-ンー]+\z/}          |
 |    first_kana    |  string  |            null:false, format: { with: /\A[ァ-ン一]+\z/}          |
 |      email       |  string  |                           null:false                             |
-|encrypted_password|  string  |              null:false, format: { with:/[a-z\d]{8,}/i }         |
+|encrypted_password|  string  |   null:false, unique: true, format: { with:/[a-z\d]{8,}/i }      |
 |     birthday     |   date   |                           null:false                             |
 
 ## itemsテーブル
