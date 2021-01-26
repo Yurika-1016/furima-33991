@@ -36,7 +36,6 @@ Things you may want to cover:
 |     birthday     |   date   |                           null:false                             |
 ### Association
 - has_many :items
-- has_many :addresses
 - has_many :orders
 
 
@@ -54,7 +53,6 @@ Things you may want to cover:
 |      user      |  references  |      null:false, foreign_keys:true  |
 ### Association
 - belongs_to :user
-- has_one :address
 - has_one :order
 
 ## addressテーブル
@@ -66,9 +64,8 @@ Things you may want to cover:
 |    address   |    string    |                     null:false                        |
 |   building   |    string    |                                                       |
 | phone_number |    string    |            null:false, format: {/[\d]{11}/ }          |
-### Association
-- belongs_to :user
-- belongs_to :item
+|    order     |  references  |            null:false, foreign_keys:true              |
+### Association    
 - belongs_to :order
 
 ## ordersテーブル
