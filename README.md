@@ -47,8 +47,8 @@ Things you may want to cover:
 |   category_id  |    integer   |               null:false            |
 | item_status_id |    integer   |               null:false            |
 | delivery_fee_id|    integer   |               null:false            |
-|shipping-area_id|    integer   |               null:false            |
-|shipping-days_id|    integer   |               null:false            |
+|shipping_area_id|    integer   |               null:false            |
+|shipping_days_id|    integer   |               null:false            |
 |     price      |    integer   |  null:false, format: {/[\d]{3,7}/}  |
 |      user      |  references  |      null:false, foreign_keys:true  |
 ### Association
