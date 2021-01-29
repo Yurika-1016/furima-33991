@@ -29,29 +29,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Content can't be blank")
       end
       it 'カテゴリー情報がないと登録できない' do
-        @item.category_id = 1
+        @item.category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category must be other than 1')
+        expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
       end
       it '商品の状態についての情報がないと登録できない' do
-        @item.item_status_id = 1
+        @item.item_status_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('Item status must be other than 1')
+        expect(@item.errors.full_messages).to include("Item status can't be blank", "Item status is not a number")
       end
       it '配送料の負担についての情報がないと登録できない' do
-        @item.delivery_fee_id = 1
+        @item.delivery_fee_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('Delivery fee must be other than 1')
+        expect(@item.errors.full_messages).to include("Delivery fee can't be blank", "Delivery fee is not a number")
       end
       it '配送元の地域についての情報がないと登録できない' do
-        @item.shipping_area_id = 1
+        @item.shipping_area_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping area must be other than 1')
+        expect(@item.errors.full_messages).to include("Shipping area can't be blank", "Shipping area is not a number")
       end
       it '配送までの日数についての情報がないと登録できない' do
-        @item.shipping_days_id = 1
+        @item.shipping_days_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping days must be other than 1')
+        expect(@item.errors.full_messages).to include("Shipping days can't be blank", "Shipping days is not a number")
       end
       it '販売価格についての情報がないと登録できない' do
         @item.price = nil
@@ -71,7 +71,7 @@ RSpec.describe Item, type: :model do
       it '販売価格が全角数字で入力してあると登録できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is invalid', 'Price is not a number')
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
