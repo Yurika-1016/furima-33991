@@ -128,6 +128,7 @@
 
       
       <li class='list'>
+        <% if @items.present? %>
         <% @items.each do |item| %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" if item.image.attached? %>
@@ -152,6 +153,7 @@
           </div>
         </div>
         <% end %>
+        <% end %>
       </li>
       
       <% if @items.empty? %>
@@ -175,7 +177,7 @@
       <% end%>
     </ul>
   </div>
-  
+
   <%# /商品一覧 %>
 </div>
 <% if user_signed_in? %>
