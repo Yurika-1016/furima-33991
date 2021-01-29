@@ -31,27 +31,52 @@ RSpec.describe Item, type: :model do
       it 'カテゴリー情報がないと登録できない' do
         @item.category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
+        expect(@item.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
       end
       it '商品の状態についての情報がないと登録できない' do
         @item.item_status_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item status can't be blank", "Item status is not a number")
+        expect(@item.errors.full_messages).to include("Item status can't be blank", 'Item status is not a number')
       end
       it '配送料の負担についての情報がないと登録できない' do
         @item.delivery_fee_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery fee can't be blank", "Delivery fee is not a number")
+        expect(@item.errors.full_messages).to include("Delivery fee can't be blank", 'Delivery fee is not a number')
       end
       it '配送元の地域についての情報がないと登録できない' do
         @item.shipping_area_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping area can't be blank", "Shipping area is not a number")
+        expect(@item.errors.full_messages).to include("Shipping area can't be blank", 'Shipping area is not a number')
       end
       it '配送までの日数についての情報がないと登録できない' do
         @item.shipping_days_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping days can't be blank", "Shipping days is not a number")
+        expect(@item.errors.full_messages).to include("Shipping days can't be blank", 'Shipping days is not a number')
+      end
+      it 'カテゴリー情報が"--"だと登録できない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
+      end
+      it '商品の状態についての情報が"--"だと登録できない' do
+        @item.item_status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Item status must be other than 1')
+      end
+      it '配送料の負担についての情報が"--"だ登録できない' do
+        @item.delivery_fee_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Delivery fee must be other than 1')
+      end
+      it '配送元の地域についての情報が"--"だと登録できない' do
+        @item.shipping_area_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Shipping area must be other than 1')
+      end
+      it '配送までの日数についての情報が"--"だと登録できない' do
+        @item.shipping_days_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Shipping days must be other than 1')
       end
       it '販売価格についての情報がないと登録できない' do
         @item.price = nil
