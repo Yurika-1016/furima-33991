@@ -18,7 +18,6 @@ RSpec.describe OrderAddress, type: :model do
     end
 
     context '内容に問題がある場合' do
-
       it '郵便番号が空で商品を購入できない' do
         @order_address.postal_code = ''
         @order_address.valid?
@@ -33,15 +32,15 @@ RSpec.describe OrderAddress, type: :model do
 
       it '郵便番号が全角文字であり商品を購入できない' do
         @order_address.postal_code = '１１１-１１１１'
-       @order_address.valid?
+        @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Postal code is invalid')
       end
 
-     it '郵便番号が6桁以下で商品を購入できない' do
+      it '郵便番号が6桁以下で商品を購入できない' do
         @order_address.postal_code = '11-1111'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Postal code is invalid')
-     end
+      end
 
       it '郵便番号が8桁以上で商品を購入できない' do
         @order_address.postal_code = '111-11111'
@@ -55,7 +54,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Prefecture can't be blank", 'Prefecture is not a number')
       end
 
-     it '都道府県が選択されておらず商品を購入できない' do
+      it '都道府県が選択されておらず商品を購入できない' do
         @order_address.prefecture_id = 0
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Prefecture must be other than 0')
