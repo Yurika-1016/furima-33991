@@ -123,6 +123,8 @@ https://github.com/Yurika-1016/furima-33991.git
 - belongs_to :order
 
 ## ordersテーブル
+|    Column    |     type     |                     Options                           |
+| ------------ | ------------ | ----------------------------------------------------- |
 |     item     |  references  |            null:false, foreign_keys:true              |
 |     user     |  references  |            null:false, foreign_keys:true              | 
 ### Association
